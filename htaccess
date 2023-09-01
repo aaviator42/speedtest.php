@@ -1,2 +1,3 @@
+# copy into your .htaccess file to disable compression for speedtest.php
 SetEnvIf Request_URI "speedtest.php" no-gzip
 Header set Content-Encoding: "none" env=no-gzip
