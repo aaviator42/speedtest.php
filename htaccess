@@ -1,0 +1,2 @@
+SetEnvIf Request_URI "speedtest.php" no-gzip
+Header set Content-Encoding: "none" env=no-gzip
