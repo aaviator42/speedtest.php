@@ -60,3 +60,4 @@ echo "Your connection speed is " . $speed . "." . PHP_EOL;
 </pre>
 </body>
 </html>
+ 
