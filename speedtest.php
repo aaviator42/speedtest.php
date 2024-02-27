@@ -1,6 +1,6 @@
 <!-- 
 speedtest.php by @aaviator42
-v0.1 : 2023-08-31
+v0.2 : 2024-02-26
 License: AGPLv33
 https://github.com/aaviator42/speedtest.php
 -->
