@@ -7,7 +7,7 @@ A PHP script to measure connection speed (server → client).
 * Ensure compression is disabled for `speedtest.php`.  
 * Feel free to adjust values and math in the script to suit your needs.  
 * Requires no JS code, all math is done on the back-end!
-* Can also be invoked with `curl`:  
+* The output is a bit messy, but can also be invoked with `curl`:  
   
   ```
   curl https://example.com/path/speedtest.php
