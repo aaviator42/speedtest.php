@@ -5,7 +5,7 @@ License: AGPLv33
 https://github.com/aaviator42/speedtest.php
 -->
 <!DOCTYPE html>
-<title>Speed test</title>
+<title>Speed Test</title>
 <meta name="robots" content="noindex, nofollow, noarchive">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
@@ -60,4 +60,3 @@ echo "Your connection speed is " . $speed . "." . PHP_EOL;
 </pre>
 </body>
 </html>
- 

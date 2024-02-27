@@ -1,0 +1,66 @@
+<!-- meanspeed-b.html v0.1 by aaviator42; 2024-02-27 -->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="robots" content="noindex, nofollow, noarchive">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+		<style>body { font-family: Verdana, sans-serif; }</style>
+		<title>Speed Test</title>
+	</head>
+<body>
+<h1>Speed Test Results</h1>
+<pre id="speedResults">
+Performing 10 consecutive tests...
+</pre>
+<pre id="finalResult"></pre>
+
+<script>
+window.onload = function() {
+    var speeds = [];
+
+    function makeRequest() {
+        return new Promise(function(resolve, reject) {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var response = xhr.responseText;
+                    var speed = parseFloat(response.split("Your connection speed is ")[1].split(" Mbit/s")[0]);
+                    speeds.push(speed);
+                    document.getElementById('speedResults').innerHTML += "<br>Test result: " + speed + " Mbit/s \n";
+                    
+                    // Print the speed to the console
+                    console.log("Test result: " + speed + " Mbit/s");
+
+                    resolve();
+                }
+            };
+            xhr.open("GET", "speedtest.php", true);
+            xhr.send();
+        });
+    }
+
+    function displayAverage() {
+        var sum = speeds.reduce(function(a, b) { return a + b; }, 0);
+        var average = sum / speeds.length;
+        document.getElementById('finalResult').innerHTML = "<p>Average result: " + average.toFixed(2) + " Mbit/s</p>" ;
+    }
+
+    // Create an array to store all promises
+    var promises = [];
+    for (var i = 0; i < 10; i++) {
+        promises.push(makeRequest());
+    }
+
+    // Execute all promises concurrently
+    Promise.all(promises)
+        .then(function() {
+            displayAverage();
+        })
+        .catch(function(error) {
+            console.error('Error during speed test:', error);
+        });
+};
+</script>
+</body>
+</html>
